@@ -7,9 +7,7 @@ angular.module('invoice1', [])
 	this.cost = 2;
 	this.inCurr = 'EUR';
 	this.currencies = ['USD', 'EUR', 'CNY'];
-
 	
-		
 	this.usdToForeignRates = { USD: 1, EUR: 0.74, CNY: 6.09 };
 
 	this.total = function total(outCurr) {
@@ -25,7 +23,14 @@ angular.module('invoice1', [])
 
 })
 .controller('MyController', function ($scope) {
-
+	
+	$scope.users = [
+		{ name : 'Mario', surname : 'Rossi' },
+		{ name : 'Luigi', surname : 'Bianchi' },
+		{ name : 'Stefano', surname : 'Verdi' },
+		];
+		
+	
 	$scope.user = { name : 'Fabrizio', city : 'Rome' };
 	
 	$scope.saluto = function () {

@@ -4,11 +4,15 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="./module/invoice1.js"></script>
+    <style type="text/css">
+      .rosso {color: red;}
+        .verde {color: green;}
+        .blu {color: blue;}
+    </style>
   </head>
   
   <body>
-    <!--
-      <div ng-controller="InvoiceController as invoice">
+    <!-- <div ng-controller="InvoiceController as invoice">
         Quantity:
         <input type="number" min="0" ng-model="invoice.qty" required>
       </div>
@@ -22,14 +26,47 @@
        
       </div>
     <br/>
-    !-->
     
+    <hr>
+    !-->
     <div ng-controller="MyController">
-      
-      <span>{{ user.name }}</span>
+      <span>{{ user.name }}
+        <b>{{ user.city }}</b>
+      </span>
       <br/>
-      <span>{{saluto}} </span>
-      
+      <span>{{saluto()}}</span>
+      <br/>
+      <span ng-bind="saluto()"></span>
+      <br>Nome utente:
+      <input type="text" ng-model="user.name">
+      <hr>
+      <div style="color: red;">Saluta solo se il nome utente esiste
+        <p ng-show="user.name">{{saluto()}}</p>
+      </div>
+      <hr>Saluta solo se il nome utene è uguale a Fabrizio
+      <p ng-if="user.name == 'Fabrizio'">
+        <span>Ciao {{user.name}}</span>
+      </p>
+      <hr>
+      <div ng-include="'./View/Cont1.html'"></div>
+      <hr>
+      Scegli un colore <input type="text" ng-model="colore">
+      <br>
+      <p ng-class="colore">hai scelto il colore: {{colore}}</p>
+      <hr>
+      ng-repeat
+      <select>
+        <option ng-repeat="utente in users" value="{{$index}}">{{utente.name}}</option>
+        </select>
+      <br/>
+      <ul>
+        
+        <li ng-repeat="(key, value) in users">
+          prop: {{key}}<br/>
+          value: {{value.surname}}
+        </li>
+        
+        </ul>
     </div>
   </body>
 
