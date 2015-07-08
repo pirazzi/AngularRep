@@ -67,6 +67,14 @@
         </li>
         
         </ul>
+        <hr>
+        <select ng-model="cognome">
+          
+          <option ng-repeat="item in users" value="{{item.surname}}">{{item.name}}</option>
+          
+        </select>
+        <br/>
+        Cognome: {{ cognome }}
     </div>
   </body>
 
